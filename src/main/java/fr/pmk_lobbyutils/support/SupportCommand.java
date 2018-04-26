@@ -1,4 +1,4 @@
-package fr.pmk_lobbyutils;
+package fr.pmk_lobbyutils.support;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

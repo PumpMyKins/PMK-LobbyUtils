@@ -1,4 +1,4 @@
-package fr.pmk_lobbyutils;
+package fr.pmk_lobbyutils.navbarconnect.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
