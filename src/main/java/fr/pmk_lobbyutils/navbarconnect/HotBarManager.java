@@ -70,13 +70,13 @@ public class HotBarManager {
 		ItemStack i = new ItemStack(Material.APPLE);
 		ItemMeta iM = i.getItemMeta();
 		
-		iM.setDisplayName("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV");
+		iM.setDisplayName("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV§4§l[OUVERT-BETA]");
 		l.add("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV §r§f#r1pmk");
 		iM.setLore(l);
 		i.setItemMeta(iM);
 		
 		
-		HotBarData d = new HotBarData("#r1pmk","ragn1",2, i, "server.r1");
+		HotBarData d = new HotBarData("#r1pmk","ragna1",2, i, "server.r1");
 		
 		h.add(d);
 		
@@ -85,7 +85,7 @@ public class HotBarManager {
 		i = new ItemStack(Material.BREAD);
 	    iM = i.getItemMeta();
 		
-	    iM.setDisplayName("§n§2PumpMyKins§9§o#2 §r§2§nRagnaMod-IV");
+	    iM.setDisplayName("§n§2PumpMyKins§9§o#2 §r§2§nRagnaMod-IV§4§l[FERME]");
 		l.add("§n§2PumpMyKins§9§o#2 §r§2§nRagnaMod-IV §r§f#r2pmk");
 		iM.setLore(l);
 		i.setItemMeta(iM);
