@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.pmk</groupId>
+  <artifactId>pmk-lobbyutils</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>PMK-LobbyUtils</name>
+  
+  	<repositories>
+    	<repository>
+        	<id>spigot-repo</id>
+        	<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    	</repository>
+    	
+    	<repository>
+    		<id>jcenter</id>
+    		<name>jcenter-bintray</name>
+    		<url>http://jcenter.bintray.com</url>
+		</repository>    
+	</repositories>
+	
+	<dependencies>
+    	<!--Spigot API-->
+    	<dependency>
+        	<groupId>org.spigotmc</groupId>
+        	<artifactId>spigot-api</artifactId>
+        	<version>1.8-R0.1-SNAPSHOT</version>
+        	<scope>provided</scope>
+        </dependency>
+    	<!--Bukkit API-->
+    	<dependency>
+        	<groupId>org.bukkit</groupId>
+        	<artifactId>bukkit</artifactId>
+        	<version>1.8-R0.1-SNAPSHOT</version>
+        	<scope>provided</scope>
+    	</dependency>
+    	
+    	<dependency>
+    		<groupId>net.dv8tion</groupId>
+    		<artifactId>JDA</artifactId>
+    		<version>3.3.0_260</version>
+		</dependency>
+		
+    	<dependency>
+        	<groupId>me.lucko.luckperms</groupId>
+        	<artifactId>luckperms-api</artifactId>
+        	<version>4.0</version>
+        	<scope>provided</scope>
+   		 </dependency>
+		
+	</dependencies>
+	
+	<build>
+    
+    	<resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*</include>
+                </includes>
+            </resource>
+        </resources>
+        
+        <sourceDirectory>src/main/java</sourceDirectory>
+    
+        <plugins>        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+            </plugin>
+            
+        </plugins>
+    </build>
+  
+</project>
