@@ -1,5 +1,6 @@
 package fr.pmk_lobbyutils.navbarconnect;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -8,30 +9,23 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class HotBarConnect {
+public class HotBarManager {
 	
 	
-	private static final ItemStack nullBaseItem = makeItem("",Material.STAINED_GLASS_PANE, null);
+	private static final ItemStack nullBaseItem = makeItem("null",Material.STAINED_GLASS_PANE, new ArrayList<>());
 	
 	
-	public static void setPlayerItem(Player p) {
+	public static void setPlayerItem(Player p, List<HotBarData> l) {
 		
 		Inventory inv = p.getInventory();	// récupération de l'inventaire
 		
-		// set item dans hotbar
-		inv.setItem(0, nullBaseItem);
-		inv.setItem(1, nullBaseItem);
-		inv.setItem(2, nullBaseItem);
-		inv.setItem(3, nullBaseItem);
-		inv.setItem(4, nullBaseItem);
-		inv.setItem(5, nullBaseItem);
-		inv.setItem(6, nullBaseItem);
-		inv.setItem(7, nullBaseItem);
-		inv.setItem(8, nullBaseItem);
+		for (int i = 0; i < inv.getSize(); i++) {
+			inv.setItem(i, nullBaseItem);
+		}
 		
-	 
-	 
-		
+		for (HotBarData h : l) {
+			
+		}
 		
 	}
 	
