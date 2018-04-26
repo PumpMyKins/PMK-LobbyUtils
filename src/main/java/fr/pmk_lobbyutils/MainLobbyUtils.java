@@ -4,6 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pmk_lobbyutils.config.Config;
 import fr.pmk_lobbyutils.listener.PlayerListener;
+import fr.pmk_lobbyutils.navbarconnect.HotBarListener;
 
 public class MainLobbyUtils extends JavaPlugin{
 	
@@ -24,6 +25,7 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		// Ajout du listener
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+		getServer().getPluginManager().registerEvents(new HotBarListener(), this);
 		
 	}
 	
