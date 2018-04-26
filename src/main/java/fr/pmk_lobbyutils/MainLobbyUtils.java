@@ -1,17 +1,21 @@
 package fr.pmk_lobbyutils;
 
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import fr.pmk_lobbyutils.config.Config;
 import fr.pmk_lobbyutils.listener.PlayerListener;
 import fr.pmk_lobbyutils.navbarconnect.HotBarListener;
+import fr.pmk_lobbyutils.navbarconnect.HotBarManager;
 
 public class MainLobbyUtils extends JavaPlugin{
 	
 	private static Config conf;
+	private static MainLobbyUtils instance;
 
 	@Override
 	public void onEnable() {
+		
+		instance = this;
 		// TODO Auto-generated method stub
 		
 		// init config
@@ -22,6 +26,13 @@ public class MainLobbyUtils extends JavaPlugin{
 		conf.initAndGetFile("player.yml");	// init config default file
 		
 		Config.setPlayerList(conf.getKnowPlayerList()); 	// init de la variable playerList
+		
+		/*//bungeecord init
+		this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+	    this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", new HotBarBungee());
+		*/
+		
+		HotBarManager.initServerItem();
 		
 		// Ajout du listener
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
@@ -46,6 +57,10 @@ public class MainLobbyUtils extends JavaPlugin{
 
 	public static void setConf(Config conf) {
 		MainLobbyUtils.conf = conf;
+	}
+
+	public static Plugin get() {
+		return instance;
 	}
 	
 }
