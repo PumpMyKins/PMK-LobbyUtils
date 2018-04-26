@@ -20,7 +20,7 @@ import fr.pmk_lobbyutils.navbarconnect.HotBarListener;
 
 public class HotBarBungee implements PluginMessageListener {
 
-	public static void initItemServer(Player p) {
+	/*public static void initItemServer(Player p) {
 		// TODO Auto-generated method stub
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		
@@ -28,11 +28,11 @@ public class HotBarBungee implements PluginMessageListener {
 		out.writeUTF("initItem");
 		
 		p.sendPluginMessage(MainLobbyUtils.get(), "BungeeCord", out.toByteArray());
-	}
+	}*/
 	
 	public static void initFinishItemServer(String[] string) {
 		
-		for (String j : string) {
+		/*for (String j : string) {
 			
 			JSONParser parser = new JSONParser();
 			HotBarData h = new HotBarData(0, null);
@@ -65,7 +65,7 @@ public class HotBarBungee implements PluginMessageListener {
 		}
 		
 		HotBarListener.setHotBarList(null);
-		HotBarListener.setInit(true);
+		HotBarListener.setInit(true);*/
 	}
 
 	@Override
