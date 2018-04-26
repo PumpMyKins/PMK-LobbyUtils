@@ -23,8 +23,16 @@ public class HotBarManager {
 			inv.setItem(i, nullBaseItem);
 		}
 		
-		for (HotBarData h : l) {
-			
+		if(l != null & !l.isEmpty()) {
+			for (HotBarData h : l) {
+				
+				if(p.hasPermission(h.getPermission() + ".view")) {
+					
+					inv.setItem(h.getSlot(), h.getItemStack());	// set des items
+					
+				}
+				
+			}			
 		}
 		
 	}
@@ -52,6 +60,55 @@ public class HotBarManager {
 
 	public ItemStack getNullBaseItem() {
 		return nullBaseItem;
+	}
+
+	public static void initServerItem() {
+		List<HotBarData> h = new ArrayList<>();
+		
+		List<String> l = new ArrayList<>();
+		
+		ItemStack i = new ItemStack(Material.APPLE);
+		ItemMeta iM = i.getItemMeta();
+		
+		iM.setDisplayName("§n§2PumpMyKins§9§l#1 §r§2§nRagnaMod-IV");
+		l.add("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV §r§f#r1pmk");
+		iM.setLore(l);
+		i.setItemMeta(iM);
+		
+		
+		HotBarData d = new HotBarData(2, i, "server.r1");
+		
+		h.add(d);
+		
+		l = new ArrayList<>();
+		
+		i = new ItemStack(Material.BREAD);
+	    iM = i.getItemMeta();
+		
+	    iM.setDisplayName("§n§2PumpMyKins§9§l#2 §r§2§nRagnaMod-IV");
+		l.add("§n§2PumpMyKins§9§o#2 §r§2§nRagnaMod-IV §r§f#r2pmk");
+		iM.setLore(l);
+		i.setItemMeta(iM);
+		
+		d = new HotBarData(6, i, "server.r2");
+		
+		h.add(d);
+		
+		l = new ArrayList<>();
+		
+		i = new ItemStack(Material.ANVIL);
+	    iM = i.getItemMeta();
+		
+	    iM.setDisplayName("§n§2PumpMyKins§9§l#DEV");
+		l.add("§n§2PumpMyKins§9§o#DEV §r§f#devpmk");
+		iM.setLore(l);
+		i.setItemMeta(iM);
+		
+		d = new HotBarData(4, i, "server.dev");
+		
+		h.add(d);
+		
+		HotBarListener.setHotBarList(h);
 	}
 	
 }
