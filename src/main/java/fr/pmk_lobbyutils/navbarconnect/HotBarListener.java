@@ -79,24 +79,19 @@ public class HotBarListener implements Listener {
 				itemLore += l;
 			}
 			
-			System.out.println(itemLore);
-			
 			for (HotBarData hotBarData : hotBarList) {
 				if(itemLore.contains(hotBarData.getCode())) {
-					System.out.println("correspondence");
-					
-					
 					
 					if(hotBarData.isServerState()) {
 						// dispo
 						if(p.hasPermission(hotBarData.getPermission() + ".join")) {
 							// requete de connexion
-							p.sendMessage("demande de co");
+							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + hotBarData.getServerName() + "§r§a bien envoyé !");
 							HotBarBungee.connectServer(p, hotBarData.getServerName());
 							
 						}else {
 							//pas la permission
-							p.sendMessage("pas la permission");
+							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + hotBarData.getServerName() + "§r§c non envoyé, permission insuffisante !");
 							
 							removeQueuePlayer(p);
 							e.setCancelled(true);
@@ -105,7 +100,8 @@ public class HotBarListener implements Listener {
 						
 					}else {
 						//pas dispo
-						p.sendMessage("pas dispo");
+						p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + hotBarData.getServerName() + "§r§c non envoyé, serveur indisponible !");
+						p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRaison : §4§o§n" + hotBarData.getDownRaison());
 						
 						removeQueuePlayer(p);
 						e.setCancelled(true);
