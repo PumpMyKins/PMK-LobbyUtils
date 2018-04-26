@@ -15,15 +15,24 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+
 public class HotBarListener implements Listener {
 
 	private static List<Player> playerList = new ArrayList<Player>(); 
 	private static List<HotBarData> hotBarList;
+	private static boolean isInit = false;
 	
 	@EventHandler
 	public void OnPlayerJoin(PlayerJoinEvent e) {
 		
 		Player p = e.getPlayer();
+		
+		/*if(!isInit & p.getServer().getOnlinePlayers().size() == 1) {
+			
+			// alors premier lancement, donc initialisation
+			HotBarBungee.initItemServer(p);
+			
+		}*/
 		
 		p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 99999999, 12, true), true);	
 		p.setGameMode(GameMode.SURVIVAL);
@@ -67,6 +76,14 @@ public class HotBarListener implements Listener {
 
 	public static void setHotBarList(List<HotBarData> hotBarList) {
 		HotBarListener.hotBarList = hotBarList;
+	}
+
+	public static boolean isInit() {
+		return isInit;
+	}
+
+	public static void setInit(boolean isInit) {
+		HotBarListener.isInit = isInit;
 	}
 	
 }
