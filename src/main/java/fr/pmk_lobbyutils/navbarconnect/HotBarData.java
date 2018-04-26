@@ -8,8 +8,24 @@ public class HotBarData {
 	private ItemStack itemStack;
 
 	public HotBarData(int s, ItemStack i) {
-		this.slot = s;
+		this.setSlot(s);
 		this.itemStack = i;
+	}
+
+	public int getSlot() {
+		return slot;
+	}
+
+	public void setSlot(int slot) {
+		this.slot = slot;
+	}
+
+	public ItemStack getItemStack() {
+		return itemStack;
+	}
+
+	public void setItemStack(ItemStack itemStack) {
+		this.itemStack = itemStack;
 	}
 	
 }
