@@ -70,13 +70,13 @@ public class HotBarManager {
 		ItemStack i = new ItemStack(Material.APPLE);
 		ItemMeta iM = i.getItemMeta();
 		
-		iM.setDisplayName("§n§2PumpMyKins§9§l#1 §r§2§nRagnaMod-IV");
+		iM.setDisplayName("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV");
 		l.add("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV §r§f#r1pmk");
 		iM.setLore(l);
 		i.setItemMeta(iM);
 		
 		
-		HotBarData d = new HotBarData(2, i, "server.r1");
+		HotBarData d = new HotBarData("#r1pmk","ragn1",2, i, "server.r1");
 		
 		h.add(d);
 		
@@ -85,12 +85,12 @@ public class HotBarManager {
 		i = new ItemStack(Material.BREAD);
 	    iM = i.getItemMeta();
 		
-	    iM.setDisplayName("§n§2PumpMyKins§9§l#2 §r§2§nRagnaMod-IV");
+	    iM.setDisplayName("§n§2PumpMyKins§9§o#2 §r§2§nRagnaMod-IV");
 		l.add("§n§2PumpMyKins§9§o#2 §r§2§nRagnaMod-IV §r§f#r2pmk");
 		iM.setLore(l);
 		i.setItemMeta(iM);
 		
-		d = new HotBarData(6, i, "server.r2");
+		d = new HotBarData("#r2pmk","ragna2",6, i, "server.r2");
 		
 		h.add(d);
 		
@@ -99,12 +99,12 @@ public class HotBarManager {
 		i = new ItemStack(Material.ANVIL);
 	    iM = i.getItemMeta();
 		
-	    iM.setDisplayName("§n§2PumpMyKins§9§l#DEV");
+	    iM.setDisplayName("§n§2PumpMyKins§9§o#DEV");
 		l.add("§n§2PumpMyKins§9§o#DEV §r§f#devpmk");
 		iM.setLore(l);
 		i.setItemMeta(iM);
 		
-		d = new HotBarData(4, i, "server.dev");
+		d = new HotBarData("#devpmk","dev",4, i, "server.dev");
 		
 		h.add(d);
 		
