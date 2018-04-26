@@ -3,6 +3,7 @@ package fr.pmk_lobbyutils;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pmk_lobbyutils.config.Config;
+import fr.pmk_lobbyutils.listener.PlayerListener;
 
 public class MainLobbyUtils extends JavaPlugin{
 	
@@ -20,6 +21,9 @@ public class MainLobbyUtils extends JavaPlugin{
 		conf.initAndGetFile("player.yml");	// init config default file
 		
 		Config.setPlayerList(conf.getKnowPlayerList()); 	// init de la variable playerList
+		
+		// Ajout du listener
+		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		
 	}
 	
