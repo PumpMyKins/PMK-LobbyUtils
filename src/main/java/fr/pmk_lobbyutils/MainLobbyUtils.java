@@ -27,10 +27,10 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		Config.setPlayerList(conf.getKnowPlayerList()); 	// init de la variable playerList
 		
-		/*//bungeecord init
+		//bungeecord init
 		this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-	    this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", new HotBarBungee());
-		*/
+	    //this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", new HotBarBungee());
+		
 		
 		HotBarManager.initServerItem();
 		
