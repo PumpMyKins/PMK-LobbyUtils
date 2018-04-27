@@ -82,31 +82,42 @@ public class HotBarListener implements Listener {
 			for (HotBarData hotBarData : hotBarList) {
 				if(itemLore.contains(hotBarData.getCode())) {
 					
-					if(hotBarData.isServerState()) {
-						// dispo
-						if(p.hasPermission(hotBarData.getPermission() + ".join")) {
+					if(p.hasPermission(hotBarData.getPermission() + ".join")) {
+						
+						if((hotBarData.isServerState().equals("prime") & p.hasPermission("server."+hotBarData.getServerName()+".primejoin")) | hotBarData.isServerState().equals("on")) {
+							
 							// requete de connexion
 							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + hotBarData.getServerName() + "§r§a bien envoyé !");
 							HotBarBungee.connectServer(p, hotBarData.getServerName());
 							
+						}else if(hotBarData.isServerState().equals("off")) {
+							
+							//pas dispo
+							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + hotBarData.getServerName() + "§r§c non envoyé, serveur indisponible !");
+							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRaison : §4§o§n" + hotBarData.getDownRaison());
+							
+							removeQueuePlayer(p);
+							e.setCancelled(true);
+							return;
+							
 						}else {
+							
 							//pas la permission
 							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + hotBarData.getServerName() + "§r§c non envoyé, permission insuffisante !");
 							
 							removeQueuePlayer(p);
 							e.setCancelled(true);
 							return;
+							
 						}
 						
 					}else {
-						//pas dispo
-						p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + hotBarData.getServerName() + "§r§c non envoyé, serveur indisponible !");
-						p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRaison : §4§o§n" + hotBarData.getDownRaison());
+						//pas la permission
+						p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + hotBarData.getServerName() + "§r§c non envoyé, permission insuffisante !");
 						
 						removeQueuePlayer(p);
 						e.setCancelled(true);
 						return;
-						
 					}
 				}
 			}

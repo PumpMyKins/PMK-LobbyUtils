@@ -7,7 +7,7 @@ public class HotBarData {
 	
 	private int slot;
 	private ItemStack itemStack;
-	private boolean serverState = true;
+	private String serverState = "on";
 	private String downRaison = "§4Serveur fermé ou en maintenance, informez grâce au forum/teamspeak/staff !";
 	private String permission = "";
 	private String code;
@@ -29,7 +29,7 @@ public class HotBarData {
 		this.permission = perm;
 	}
 	
-	public HotBarData(String code, String s, int sl, ItemStack i, boolean state , String raison) {
+	public HotBarData(String code, String s, int sl, ItemStack i, String state , String raison) {
 		this.code = code;
 		this.serverName = s;
 		this.slot = sl;
@@ -38,7 +38,7 @@ public class HotBarData {
 		this.downRaison = raison;
 	}
 	
-	public HotBarData(String code, String s, int sl, ItemStack i , boolean state , String raison , String perm) {
+	public HotBarData(String code, String s, int sl, ItemStack i , String state , String raison , String perm) {
 		this.code = code;
 		this.serverName = s;
 		this.slot = sl;
@@ -64,11 +64,11 @@ public class HotBarData {
 		this.itemStack = itemStack;
 	}
 
-	public boolean isServerState() {
+	public String isServerState() {
 		return serverState;
 	}
 
-	public void setServerState(boolean serverState) {
+	public void setServerState(String serverState) {
 		this.serverState = serverState;
 	}
 
