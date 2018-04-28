@@ -66,7 +66,7 @@ public class HotBarSetCommand implements CommandExecutor {
             					
             					String raison = "";
             					for (int i = 2; i < args.length; i++) {
-									raison += args[i];
+									raison += args[i] + " ";
 								}  
             					
             					h.setDownRaison(raison);
