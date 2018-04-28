@@ -29,10 +29,8 @@ public class HotBarListCommand implements CommandExecutor {
             		
             		for (HotBarData h : hList) {
             			
-            			if(h.isServerState().equalsIgnoreCase("on")) {
-            				
+            			if(h.isServerState().equalsIgnoreCase("on")) {	
             				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l>§r §a state : " + h.isServerState());
-            				
             			}else {
             				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l>§r §a state : §c" + h.isServerState());
             				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l]§r §a raison : §c" + h.getDownRaison());
