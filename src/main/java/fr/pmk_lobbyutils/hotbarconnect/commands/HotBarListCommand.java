@@ -1,4 +1,4 @@
-package fr.pmk_lobbyutils.navbarconnect.commands;
+package fr.pmk_lobbyutils.hotbarconnect.commands;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import fr.pmk_lobbyutils.navbarconnect.HotBarData;
-import fr.pmk_lobbyutils.navbarconnect.HotBarListener;
+import fr.pmk_lobbyutils.hotbarconnect.HotBarData;
+import fr.pmk_lobbyutils.hotbarconnect.HotBarListener;
 
 public class HotBarListCommand implements CommandExecutor {
 
@@ -25,12 +25,18 @@ public class HotBarListCommand implements CommandExecutor {
             		//permission accordé
             		p.sendMessage("§e§l[§r§6PumpMyConnect§r§e§l]§r §aRécupération de la liste des serveurs !");
             		
-            		List<HotBarData> h = HotBarListener.getHotBarList();
+            		List<HotBarData> hList = HotBarListener.getHotBarList();
             		
-            		for (HotBarData hotBarData : h) {
-						
-            			p.sendMessage("§e§l[§r§6" + hotBarData.getServerName() + "§r§e§l]§r §a state : " + hotBarData.isServerState() + " / raison " + hotBarData.getDownRaison());
+            		for (HotBarData h : hList) {
             			
+            			if(h.isServerState().equalsIgnoreCase("on")) {
+            				
+            				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l>§r §a state : " + h.isServerState());
+            				
+            			}else {
+            				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l>§r §a state : §c" + h.isServerState());
+            				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l]§r §a raison : §c" + h.getDownRaison());
+            			}	
 					}
             		
             	}else {

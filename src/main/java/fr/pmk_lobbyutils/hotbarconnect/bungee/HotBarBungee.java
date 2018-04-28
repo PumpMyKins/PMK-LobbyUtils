@@ -1,4 +1,4 @@
-package fr.pmk_lobbyutils.navbarconnect.bungee;
+package fr.pmk_lobbyutils.hotbarconnect.bungee;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,8 +15,8 @@ import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
 import fr.pmk_lobbyutils.MainLobbyUtils;
-import fr.pmk_lobbyutils.navbarconnect.HotBarData;
-import fr.pmk_lobbyutils.navbarconnect.HotBarListener;
+import fr.pmk_lobbyutils.hotbarconnect.HotBarData;
+import fr.pmk_lobbyutils.hotbarconnect.HotBarListener;
 
 public class HotBarBungee implements PluginMessageListener {
 

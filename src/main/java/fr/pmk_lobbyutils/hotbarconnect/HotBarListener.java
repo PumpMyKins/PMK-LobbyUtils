@@ -1,4 +1,4 @@
-package fr.pmk_lobbyutils.navbarconnect;
+package fr.pmk_lobbyutils.hotbarconnect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import fr.pmk_lobbyutils.navbarconnect.bungee.HotBarBungee;
+import fr.pmk_lobbyutils.hotbarconnect.bungee.HotBarBungee;
 
 
 public class HotBarListener implements Listener {

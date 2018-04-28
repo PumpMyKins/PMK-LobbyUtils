@@ -3,13 +3,13 @@ package fr.pmk_lobbyutils;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import fr.pmk_lobbyutils.config.Config;
+import fr.pmk_lobbyutils.hotbarconnect.HotBarListener;
+import fr.pmk_lobbyutils.hotbarconnect.HotBarManager;
+import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarListCommand;
+import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarSetCommand;
 import fr.pmk_lobbyutils.interchat.BungeeChatCommand;
 import fr.pmk_lobbyutils.interchat.BungeeChatListCommand;
 import fr.pmk_lobbyutils.listener.PlayerListener;
-import fr.pmk_lobbyutils.navbarconnect.HotBarListener;
-import fr.pmk_lobbyutils.navbarconnect.HotBarManager;
-import fr.pmk_lobbyutils.navbarconnect.commands.HotBarListCommand;
-import fr.pmk_lobbyutils.navbarconnect.commands.HotBarSetCommand;
 import fr.pmk_lobbyutils.support.SupportCommand;
 import fr.pmk_lobbyutils.support.SupportListener;
 
@@ -43,10 +43,10 @@ public class MainLobbyUtils extends JavaPlugin{
 		// Ajout du listener
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		getServer().getPluginManager().registerEvents(new HotBarListener(), this);
-		getServer().getPluginManager().registerEvents(new SupportListener(), this);
+		//getServer().getPluginManager().registerEvents(new SupportListener(), this);
 		
 		this.getCommand("hbclist").setExecutor(new HotBarListCommand());
-		this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
+		//this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
 		
 		//this.getCommand("support").setExecutor(new SupportCommand());
 		

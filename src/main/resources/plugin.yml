@@ -3,7 +3,8 @@ main: fr.pmk_lobbyutils.MainLobbyUtils
 version: 1.0
 author: PumpMyKins
 
-commads:
+commands:
   hbclist:
-    usage: /hbclist
+      description: Your description
+      usage: /hbclist
     

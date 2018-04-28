@@ -19,25 +19,18 @@
 	</repositories>
 	
 	<dependencies>
-    	<!--Spigot API-->
     	<dependency>
-        	<groupId>org.spigotmc</groupId>
-        	<artifactId>spigot-api</artifactId>
-        	<version>1.8-R0.1-SNAPSHOT</version>
-        	<scope>provided</scope>
-        </dependency>
-    	<!--Bukkit API-->
-    	<dependency>
-        	<groupId>org.bukkit</groupId>
-        	<artifactId>bukkit</artifactId>
-        	<version>1.8-R0.1-SNAPSHOT</version>
-        	<scope>provided</scope>
-    	</dependency>
-    	
-    	<dependency>
-    		<groupId>net.dv8tion</groupId>
-    		<artifactId>JDA</artifactId>
-    		<version>3.3.0_260</version>
+           <groupId>org.spigotmc</groupId>
+           <artifactId>spigot-api</artifactId>
+           <version>1.8.8-R0.1-SNAPSHOT</version>
+           <scope>provided</scope>
+		</dependency>
+		<!--Bukkit API-->
+		<dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
 		</dependency>
 		
     	<dependency>

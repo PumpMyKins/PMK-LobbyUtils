@@ -1,4 +1,4 @@
-package fr.pmk_lobbyutils.navbarconnect;
+package fr.pmk_lobbyutils.hotbarconnect;
 
 import org.bukkit.inventory.ItemStack;
 
