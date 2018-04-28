@@ -94,7 +94,7 @@ public class HotBarListener implements Listener {
 							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + hotBarData.getServerName() + "§r§a bien envoyé !");
 							HotBarBungee.connectServer(p, hotBarData.getServerName());
 							
-						}else if(hotBarData.isServerState().equals("off")) {
+						}else if(hotBarData.isServerState().equals("off") | hotBarData.isServerState().equals("dev")) {
 							
 							//pas dispo
 							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + hotBarData.getServerName() + "§r§c non envoyé, serveur indisponible !");
