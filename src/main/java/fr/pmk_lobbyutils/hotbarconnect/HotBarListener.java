@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -140,6 +141,17 @@ public class HotBarListener implements Listener {
 	@EventHandler
 	public void OnPlayerDeath(PlayerDeathEvent e) {
 		HotBarManager.setPlayerItem(e.getEntity(),hotBarList);
+	}
+	
+	@EventHandler
+	public void OnPlayerDropItem(PlayerDropItemEvent e) {
+		
+		Player p = e.getPlayer();
+		GameMode gm = p.getGameMode();
+		
+		if(gm.equals(GameMode.SURVIVAL) | gm.equals(GameMode.ADVENTURE)) {
+			e.setCancelled(true);
+		}
 	}
 
 	public static List<HotBarData> getHotBarList() {
