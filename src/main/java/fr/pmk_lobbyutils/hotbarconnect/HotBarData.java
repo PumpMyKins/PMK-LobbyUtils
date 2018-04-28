@@ -7,7 +7,7 @@ public class HotBarData {
 	
 	private int slot;
 	private ItemStack itemStack;
-	private String serverState = "on";
+	private String serverState = "off";
 	private String downRaison = "§4Serveur fermé ou en maintenance, informez grâce au forum/teamspeak/staff !";
 	private String permission = "";
 	private String code;
