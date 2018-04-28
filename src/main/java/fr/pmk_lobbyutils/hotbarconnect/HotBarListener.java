@@ -9,6 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.inventory.InventoryEvent;
+import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -153,6 +156,28 @@ public class HotBarListener implements Listener {
 			e.setCancelled(true);
 		}
 	}
+	
+	@EventHandler
+	public void OnPlayerInventory(InventoryDragEvent e) {
+		
+		Player p = (Player) e.getWhoClicked();
+		GameMode gm = p.getGameMode();
+		
+		if(gm.equals(GameMode.SURVIVAL) | gm.equals(GameMode.ADVENTURE)) {
+			e.setCancelled(true);
+		}
+	}
+	
+	/*@EventHandler
+	public void OnPlayerDropItem(InventoryMoveItemEvent e) {
+		
+		Player p = egetPlayer();
+		GameMode gm = p.getGameMode();
+		
+		if(gm.equals(GameMode.SURVIVAL) | gm.equals(GameMode.ADVENTURE)) {
+			e.setCancelled(true);
+		}
+	}*/
 
 	public static List<HotBarData> getHotBarList() {
 		return hotBarList;
