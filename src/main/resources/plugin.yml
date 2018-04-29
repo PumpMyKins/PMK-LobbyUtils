@@ -5,6 +5,9 @@ author: PumpMyKins
 
 commands:
   hbclist:
-      description: Your description
+      description: Commande d affichage de la liste des serveurs
       usage: /hbclist
+  hbcserver:
+      description: Commandes de mises a jour des informations des serveurs
+      usage: /hbcserver
     

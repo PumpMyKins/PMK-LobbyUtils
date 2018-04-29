@@ -46,7 +46,7 @@ public class MainLobbyUtils extends JavaPlugin{
 		//getServer().getPluginManager().registerEvents(new SupportListener(), this);
 		
 		this.getCommand("hbclist").setExecutor(new HotBarListCommand());
-		//this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
+		this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
 		
 		//this.getCommand("support").setExecutor(new SupportCommand());
 		

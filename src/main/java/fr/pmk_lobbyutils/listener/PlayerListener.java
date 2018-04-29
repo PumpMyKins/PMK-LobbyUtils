@@ -36,6 +36,7 @@ public class PlayerListener implements Listener {
 		}
 	}
 	
+	@EventHandler
 	public void OnPlayerQuit(PlayerQuitEvent e) {
 		e.setQuitMessage("");		//pas de message
 	}

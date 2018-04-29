@@ -19,14 +19,15 @@ public class HotBarManager {
 		
 		Inventory inv = p.getInventory();	// récupération de l'inventaire
 		
-		for (int i = 0; i < inv.getSize(); i++) {
+		inv.clear();
+		/*for (int i = 0; i < inv.getSize(); i++) {
 			inv.setItem(i, nullBaseItem);
-		}
+		}*/
 		
 		if(l != null & !l.isEmpty()) {
 			for (HotBarData h : l) {
 				
-				if(p.hasPermission(h.getPermission() + ".view")) {
+				if(p.hasPermission("server." + h.getServerName() + ".view")) {
 					
 					inv.setItem(h.getSlot(), h.getItemStack());	// set des items
 					
@@ -76,7 +77,7 @@ public class HotBarManager {
 		i.setItemMeta(iM);
 		
 		
-		HotBarData d = new HotBarData("#r1pmk","ragna1",2, i, "server.r1");
+		HotBarData d = new HotBarData("#r1pmk","ragna1",2, i, "server.ragna1");
 		
 		h.add(d);
 		
@@ -90,7 +91,7 @@ public class HotBarManager {
 		iM.setLore(l);
 		i.setItemMeta(iM);
 		
-		d = new HotBarData("#r2pmk","ragna2",6, i, "server.r2");
+		d = new HotBarData("#r2pmk","ragna2",6, i, "server.ragna2");
 		
 		h.add(d);
 		
