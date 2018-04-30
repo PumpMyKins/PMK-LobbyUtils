@@ -9,6 +9,7 @@ import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarListCommand;
 import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarSetCommand;
 import fr.pmk_lobbyutils.listener.PlayerListener;
 
+
 public class MainLobbyUtils extends JavaPlugin{
 	
 	private static Config conf;
@@ -25,15 +26,6 @@ public class MainLobbyUtils extends JavaPlugin{
 								
 		conf.initDataFolder();
 		conf.initAndGetFile("config.yml");	// init config default file
-		conf.initAndGetFile("player.yml");	// init config default file
-		
-		Config.setPlayerList(conf.getKnowPlayerList()); 	// init de la variable playerList
-		
-		//bungeecord init
-		this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-	    //this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", new HotBarBungee());
-		
-		
 		HotBarManager.initServerItem();
 		
 		// Ajout du listener
