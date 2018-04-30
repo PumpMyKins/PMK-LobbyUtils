@@ -20,9 +20,6 @@ public class HotBarManager {
 		Inventory inv = p.getInventory();	// récupération de l'inventaire
 		
 		inv.clear();
-		/*for (int i = 0; i < inv.getSize(); i++) {
-			inv.setItem(i, nullBaseItem);
-		}*/
 		
 		if(l != null & !l.isEmpty()) {
 			for (HotBarData h : l) {
@@ -78,6 +75,7 @@ public class HotBarManager {
 		
 		
 		HotBarData d = new HotBarData("#r1pmk","ragna1",2, i, "server.ragna1");
+		d.setServerState("on");
 		
 		h.add(d);
 		

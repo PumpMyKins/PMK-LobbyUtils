@@ -41,13 +41,6 @@ public class HotBarListener implements Listener {
 		
 		Player p = e.getPlayer();
 		
-		/*if(!isInit & p.getServer().getOnlinePlayers().size() == 1) {
-			
-			// alors premier lancement, donc initialisation
-			HotBarBungee.initItemServer(p);
-			
-		}*/
-		
 		p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 99999999, 12, true), true);	
 		p.setGameMode(GameMode.SURVIVAL);
 		

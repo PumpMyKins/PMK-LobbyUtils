@@ -7,11 +7,7 @@ import fr.pmk_lobbyutils.hotbarconnect.HotBarListener;
 import fr.pmk_lobbyutils.hotbarconnect.HotBarManager;
 import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarListCommand;
 import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarSetCommand;
-import fr.pmk_lobbyutils.interchat.BungeeChatCommand;
-import fr.pmk_lobbyutils.interchat.BungeeChatListCommand;
 import fr.pmk_lobbyutils.listener.PlayerListener;
-import fr.pmk_lobbyutils.support.SupportCommand;
-import fr.pmk_lobbyutils.support.SupportListener;
 
 public class MainLobbyUtils extends JavaPlugin{
 	
@@ -43,15 +39,9 @@ public class MainLobbyUtils extends JavaPlugin{
 		// Ajout du listener
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		getServer().getPluginManager().registerEvents(new HotBarListener(), this);
-		//getServer().getPluginManager().registerEvents(new SupportListener(), this);
 		
 		this.getCommand("hbclist").setExecutor(new HotBarListCommand());
 		this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
-		
-		//this.getCommand("support").setExecutor(new SupportCommand());
-		
-		//this.getCommand("bchatlist").setExecutor(new BungeeChatListCommand());
-		//this.getCommand("bchat").setExecutor(new BungeeChatCommand());
 		
 	}
 	
