@@ -43,7 +43,7 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		this.getCommand("hbclist").setExecutor(new HotBarListCommand());
 		this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
-		
+		this.getCommand("spawn").setExecutor(new SpawnCommand());
 		//this.getCommand("bchatlist").setExecutor(new BungeeChatListCommand());
 		//this.getCommand("bchat").setExecutor(new BungeeChatCommand());
 		

@@ -10,4 +10,7 @@ commands:
   hbcserver:
       description: Commandes de mises a jour des informations des serveurs
       usage: /hbcserver
+  spawn:
+      description: Commande de spawn
+      usage: /spawn
     
