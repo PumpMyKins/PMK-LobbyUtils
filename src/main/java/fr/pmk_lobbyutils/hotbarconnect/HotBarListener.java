@@ -85,6 +85,7 @@ public class HotBarListener implements Listener {
 							
 							// requete de connexion
 							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + hotBarData.getServerName() + "§r§a bien envoyé !");
+							p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aMerci de patienter le temps que le serveur confirme la connexion ...");
 							HotBarBungee.connectServer(p, hotBarData.getServerName());
 							
 						}else if(hotBarData.isServerState().equals("off") | hotBarData.isServerState().equals("dev")) {

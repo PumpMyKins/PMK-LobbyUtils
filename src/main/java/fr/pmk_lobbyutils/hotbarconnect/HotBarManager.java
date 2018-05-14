@@ -68,7 +68,7 @@ public class HotBarManager {
 		ItemStack i = new ItemStack(Material.APPLE);
 		ItemMeta iM = i.getItemMeta();
 		
-		iM.setDisplayName("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV§4§l[OUVERT-BETA]");
+		iM.setDisplayName("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV§4§l[OUVERT]");
 		l.add("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV §r§f#r1pmk");
 		iM.setLore(l);
 		i.setItemMeta(iM);
