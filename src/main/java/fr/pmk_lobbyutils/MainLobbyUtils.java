@@ -28,6 +28,8 @@ public class MainLobbyUtils extends JavaPlugin{
 		conf.initAndGetFile("config.yml");	// init config default file
 		HotBarManager.initServerItem();
 		
+		this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+		
 		// Ajout du listener
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		getServer().getPluginManager().registerEvents(new HotBarListener(), this);
@@ -40,7 +42,6 @@ public class MainLobbyUtils extends JavaPlugin{
 	@Override
 	public void onDisable() {
 		// TODO Auto-generated method stub
-		conf.setKnowPlayerList(Config.getPlayerList()); // sauvegarde de la variable playerList
 	}
 	
 	@Override

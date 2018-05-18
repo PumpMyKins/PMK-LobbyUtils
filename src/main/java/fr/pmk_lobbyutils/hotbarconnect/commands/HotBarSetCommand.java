@@ -37,7 +37,7 @@ public class HotBarSetCommand implements CommandExecutor {
             			
             			if(h.getServerName().equalsIgnoreCase(args[0])) {
             				
-            				System.out.println(args[0]);
+            				//System.out.println(args[0]);
             				
             				if(!(args.length >= 2)) {
             					p.sendMessage("§4[ Staff help ] : Vous devez mettre spécifier un serveur, et l'état");
@@ -52,16 +52,16 @@ public class HotBarSetCommand implements CommandExecutor {
             					
             				}
             				
-            				System.out.println(args[1]);
+            				//System.out.println(args[1]);
             				
             				if(args[1].equalsIgnoreCase("on") | args[1].equalsIgnoreCase("prime")) {
             					
-            					System.out.println("on prime");
+            					//System.out.println("on prime");
             					h.setServerState(args[1]);
             					
             				}else {
             					
-            					System.out.println("off dev");
+            					//System.out.println("off dev");
             					h.setServerState(args[1]);
             					
             					String raison = "";

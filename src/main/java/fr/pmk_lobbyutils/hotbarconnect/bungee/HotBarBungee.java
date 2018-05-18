@@ -1,22 +1,13 @@
 package fr.pmk_lobbyutils.hotbarconnect.bungee;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
 import fr.pmk_lobbyutils.MainLobbyUtils;
-import fr.pmk_lobbyutils.hotbarconnect.HotBarData;
-import fr.pmk_lobbyutils.hotbarconnect.HotBarListener;
 
 public class HotBarBungee implements PluginMessageListener {
 
