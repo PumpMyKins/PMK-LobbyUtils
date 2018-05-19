@@ -8,9 +8,11 @@ public class HotBarItemData {
 
 	private ItemStack item;
 	private IHotBarItemListener listener;
+	private String itemName;
 	
-	public HotBarItemData(ItemStack i, IHotBarItemListener l) {
+	public HotBarItemData(String iN , ItemStack i, IHotBarItemListener l) {
 		
+		this.itemName = iN;
 		this.item = i;
 		this.listener = l;
 		
@@ -27,6 +29,14 @@ public class HotBarItemData {
 	}
 	public void setListener(IHotBarItemListener listener) {
 		this.listener = listener;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 	
 	
