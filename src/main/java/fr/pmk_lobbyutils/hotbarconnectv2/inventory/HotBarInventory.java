@@ -9,27 +9,38 @@ import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
 public class HotBarInventory {
 
-	private static HashMap<String,HotBarItemData> hashItem = new HashMap<>();
+	private HashMap<String,HotBarItemData> hashItem = new HashMap<>();
 	
-	public void addInventoryItem(String itemName, ItemStack item, IHotBarItemListener l) {
+	public void addInventoryItem(String itemName, HotBarItemData h) {
+		if(hashItem.containsKey(itemName))
+			return;
 		
+		hashItem.put(itemName, h);
 	}
 	
-	public static void build() {
+	public static HotBarInventory build(HotBarItemData... barItemDatas) {
 		
-	}
-	
-	public static Inventory getBuilded() {
-		// TODO Auto-generated method stub
-		return null;
+		HotBarInventory hBI = new HotBarInventory();
+		
+		for (HotBarItemData hotBarItemData : barItemDatas) {
+			
+			if(!(hBI.getHashItem().size() <= 9)) {
+				
+				hBI.addInventoryItem(hotBarItemData.getItemName(), hotBarItemData);
+				
+			}
+			
+		}	
+		
+		return hBI;
 	}
 
-	public static HashMap<String,HotBarItemData> getHashItem() {
+	public HashMap<String,HotBarItemData> getHashItem() {
 		return hashItem;
 	}
 
-	public static void setHashItem(HashMap<String,HotBarItemData> hashItem) {
-		HotBarInventory.hashItem = hashItem;
+	public void setHashItem(HashMap<String,HotBarItemData> hashItem) {
+		this.hashItem = hashItem;
 	}
 
 }
