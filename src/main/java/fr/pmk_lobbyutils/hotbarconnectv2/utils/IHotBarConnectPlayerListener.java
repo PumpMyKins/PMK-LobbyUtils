@@ -11,7 +11,7 @@ public interface IHotBarConnectPlayerListener{
 	
 	public void OnPlayerLeave(PlayerQuitEvent event);
 	
-	public void OnPlayerDeath(PlayerRespawnEvent event);
+	public void OnPlayerRespawn(PlayerRespawnEvent event);
 	
 	public void OnPlayerUseItem(PlayerInteractEvent event);
 	

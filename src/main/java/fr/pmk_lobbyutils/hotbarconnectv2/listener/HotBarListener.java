@@ -33,7 +33,7 @@ public class HotBarListener implements Listener,IHotBarConnectPlayerListener {
 
 	@Override
 	@EventHandler
-	public void OnPlayerDeath(PlayerRespawnEvent event) {
+	public void OnPlayerRespawn(PlayerRespawnEvent event) {
 		// TODO Auto-generated method stub
 		hotBarManager.setInventory(event.getPlayer());
 		
