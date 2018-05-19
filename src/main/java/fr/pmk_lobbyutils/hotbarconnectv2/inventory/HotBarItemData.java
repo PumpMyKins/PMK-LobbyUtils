@@ -41,11 +41,6 @@ public class HotBarItemData {
 		this.itemName = itemName;
 	}
 
-	public int getIndex() {
-		// TODO Auto-generated method stub
-		return itemSlot;
-	}
-
 	public int getItemSlot() {
 		return itemSlot;
 	}
