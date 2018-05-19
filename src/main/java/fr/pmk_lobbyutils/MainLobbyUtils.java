@@ -6,6 +6,7 @@ import fr.pmk_lobbyutils.config.Config;
 import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarListCommand;
 import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarSetCommand;
 import fr.pmk_lobbyutils.hotbarconnectv2.HotBarManager;
+import fr.pmk_lobbyutils.hotbarconnectv2.inventory.HotBarInventory;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.HotBarListener;
 import fr.pmk_lobbyutils.listener.PlayerListener;
 
@@ -36,6 +37,7 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		hotBarManager = HotBarManager.getManager(this);
 		
+		hotBarManager.setHotBarInv(new HotBarInventory());		
 		hotBarManager.setPlayerListener(new HotBarListener());
 		
 		
