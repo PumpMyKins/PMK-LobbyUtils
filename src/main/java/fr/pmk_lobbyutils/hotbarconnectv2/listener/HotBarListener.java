@@ -1,5 +1,6 @@
 package fr.pmk_lobbyutils.hotbarconnectv2.listener;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -7,6 +8,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
 
 import fr.pmk_lobbyutils.MainLobbyUtils;
 import fr.pmk_lobbyutils.hotbarconnectv2.HotBarManager;
@@ -42,6 +44,22 @@ public class HotBarListener implements Listener,IHotBarConnectPlayerListener {
 	@Override
 	public void OnPlayerUseItem(PlayerInteractEvent event) {
 		// TODO Auto-generated method stub
+		Player p = event.getPlayer();
+		
+		ItemStack i = event.getItem();
+		
+		if(event.getItem() == null) {
+			return;
+		}
+		
+		String n = i.getItemMeta().getDisplayName();
+		HotBarManager h = MainLobbyUtils.getHotBarManager();
+		
+		if(h.getHotBarInv().contains(n)) {
+			
+			h.getHotBarInv().getHashItem().get(n).getListener().callItem(event);
+			
+		}
 		
 	}
 
