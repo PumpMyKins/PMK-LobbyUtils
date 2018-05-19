@@ -48,8 +48,12 @@ public class HotBarInventory implements Iterable<HotBarItemData>{
 		for (Entry<String, HotBarItemData> hotBarItemData : hashItem.entrySet()) {
 			l.add(hotBarItemData.getValue());
 		}
-
+		
 		return l.iterator();
+	}
+	
+	public boolean contains(String n) {
+		return hashItem.containsKey(n);
 	}
 
 }
