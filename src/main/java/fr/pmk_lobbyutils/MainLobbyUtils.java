@@ -45,8 +45,6 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		hotBarManager = HotBarManager.getManager(this);
 		
-		createHotBarInv(hotBarManager);
-		
 		hotBarManager.setDefaultInventory(createHotBarInv(hotBarManager));
 		hotBarManager.setPlayerListener(new HotBarListener());
 		
