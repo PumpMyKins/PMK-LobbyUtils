@@ -23,12 +23,10 @@ public class HotBarInventory implements Iterable<HotBarItemData>{
 		
 		for (HotBarItemData hotBarItemData : barItemDatas) {
 			
-			if(!(hBI.getHashItem().size() <= 9)) {
-				
+			if(!(hBI.getHashItem().size() > 9)) {
 				hBI.addInventoryItem(hotBarItemData.getItemName(), hotBarItemData);
-				
 			}
-			
+
 		}	
 		
 		return hBI;
@@ -45,6 +43,7 @@ public class HotBarInventory implements Iterable<HotBarItemData>{
 	@Override
 	public Iterator<HotBarItemData> iterator() {
 		List<HotBarItemData> l = new ArrayList<>();
+		
 		for (Entry<String, HotBarItemData> hotBarItemData : hashItem.entrySet()) {
 			l.add(hotBarItemData.getValue());
 		}
