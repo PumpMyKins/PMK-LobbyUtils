@@ -1,5 +1,7 @@
 package fr.pmk_lobbyutils.hotbarconnectv2.utils;
 
-public class IHotBarItemListener {
+public interface IHotBarItemListener {
 
+	public void callItem();
+	
 }
