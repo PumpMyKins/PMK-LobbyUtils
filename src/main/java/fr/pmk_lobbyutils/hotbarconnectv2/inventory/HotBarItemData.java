@@ -9,12 +9,14 @@ public class HotBarItemData {
 	private ItemStack item;
 	private IHotBarItemListener listener;
 	private String itemName;
+	private int itemSlot;
 	
-	public HotBarItemData(String iN , ItemStack i, IHotBarItemListener l) {
+	public HotBarItemData(String iN , int s, ItemStack i, IHotBarItemListener l) {
 		
 		this.itemName = iN;
 		this.item = i;
 		this.listener = l;
+		this.itemSlot = s;
 		
 	}
 	
@@ -37,6 +39,19 @@ public class HotBarItemData {
 
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+
+	public int getIndex() {
+		// TODO Auto-generated method stub
+		return itemSlot;
+	}
+
+	public int getItemSlot() {
+		return itemSlot;
+	}
+
+	public void setItemSlot(int itemSlot) {
+		this.itemSlot = itemSlot;
 	}
 	
 	
