@@ -1,14 +1,13 @@
 package fr.pmk_lobbyutils.hotbarconnectv2.commands;
 
-import java.util.List;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import fr.pmk_lobbyutils.hotbarconnect.HotBarData;
-import fr.pmk_lobbyutils.hotbarconnect.HotBarListener;
+import fr.pmk_lobbyutils.MainLobbyUtils;
+import fr.pmk_lobbyutils.hotbarconnectv2.inventory.HotBarItemData;
+import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
 public class HotBarListCommand implements CommandExecutor {
 
@@ -23,17 +22,17 @@ public class HotBarListCommand implements CommandExecutor {
             	if(p.hasPermission("hbc.list")) {
             		
             		//permission accordé
-            		p.sendMessage("§e§l[§r§6PumpMyConnect§r§e§l]§r §aRécupération de la liste des serveurs !");
+            		p.sendMessage("§e§l[§r§6PumpMyConnect§r§e§l]§r §aRécupération de la liste items et leurs états !");
             		
-            		List<HotBarData> hList = HotBarListener.getHotBarList();
-            		
-            		for (HotBarData h : hList) {
+            		for (HotBarItemData h : MainLobbyUtils.getHotBarManager().getHotBarInv()) {
             			
-            			if(h.isServerState().equalsIgnoreCase("on") | h.isServerState().equalsIgnoreCase("prime")) {	
-            				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l>§r §a state : " + h.isServerState());
+            			IHotBarItemListener l = h.getListener();
+            			
+            			if(l.getState().equals("on") | l.getState().equalsIgnoreCase("prime")) {	
+            				p.sendMessage("§e§l[§r" + h.getItemName() + "§r / §r" + h.getCompactName() + "§r§e§l>§r §a state : " + l.getState());
             			}else {
-            				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l>§r §a state : §c" + h.isServerState());
-            				p.sendMessage("§e§l[§r§6" + h.getServerName() + "§r§e§l]§r §a raison : §c" + h.getDownRaison());
+            				p.sendMessage("§e§l[§r" + h.getItemName() + "§r / §r" + h.getCompactName() + "§r§e§l>§r §a state : §c" + l.getState());
+            				p.sendMessage("§e§l[§r" + h.getItemName() + "§r / §r" + h.getCompactName() + "§r§e§l]§r §a raison : §c" + l.getRaison());
             			}
             			
             			p.sendMessage("§c==================");

@@ -38,6 +38,10 @@ public class HotBarManager {
 		this.hotBarInv = i;
 		
 	}
+	
+	public void setItemMenuLister(Listener l) {
+		this.main.getServer().getPluginManager().registerEvents(l, this.main);
+	}
 
 	public MainLobbyUtils getMain() {
 		return this.main;

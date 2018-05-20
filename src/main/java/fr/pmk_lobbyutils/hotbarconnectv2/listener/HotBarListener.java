@@ -54,12 +54,14 @@ public class HotBarListener implements Listener,IHotBarConnectPlayerListener {
 			return;
 		}
 		
+		event.setCancelled(true);
+		
 		//System.out.println("get name item");
 		String n = i.getItemMeta().getDisplayName();
 		HotBarManager h = MainLobbyUtils.getHotBarManager();
 		
 		if(h.getHotBarInv().contains(n)) {
-			System.out.println("apelle de l'event");
+			//System.out.println("apelle de l'event");
 			h.getHotBarInv().getHashItem().get(n).getListener().callItem(event);
 			
 		}
