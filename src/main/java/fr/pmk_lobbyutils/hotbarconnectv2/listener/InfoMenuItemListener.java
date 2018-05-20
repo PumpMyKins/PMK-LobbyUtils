@@ -12,8 +12,8 @@ public class InfoMenuItemListener implements IHotBarItemListener {
 
 	private static Inventory inv;
 	
-	private static String raison = "Surprise";
-	private static boolean state = false;
+	private String raison = "Surprise";
+	private String state = "off";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {
@@ -22,7 +22,7 @@ public class InfoMenuItemListener implements IHotBarItemListener {
 		
 		Player p = event.getPlayer();
 		
-		if(p.hasPermission("menu.info.over") | state ) {
+		if(p.hasPermission("menu.info.over") | state.equals("on") ) {
 			
 			p.openInventory(inv);
 			
@@ -48,19 +48,28 @@ public class InfoMenuItemListener implements IHotBarItemListener {
 		InfoMenuItemListener.inv = inv;
 	}
 
-	public static String getRaison() {
-		return raison;
-	}
-
-	public static void setRaison(String raison) {
-		InfoMenuItemListener.raison = raison;
-	}
-
-	public static boolean isState() {
+	@Override
+	public String getState() {
+		// TODO Auto-generated method stub
 		return state;
 	}
 
-	public static void setState(boolean state) {
-		InfoMenuItemListener.state = state;
+	@Override
+	public String getRaison() {
+		// TODO Auto-generated method stub
+		return raison;
 	}
+
+	@Override
+	public void setState(String s) {
+		this.state = s;
+		
+	}
+
+	@Override
+	public void setRasion(String r) {
+		// TODO Auto-generated method stub
+		this.raison = r;
+	}
+	
 }
