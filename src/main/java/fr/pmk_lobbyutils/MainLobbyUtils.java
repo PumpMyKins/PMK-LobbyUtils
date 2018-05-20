@@ -4,20 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import fr.pmk_lobbyutils.config.Config;
-import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarListCommand;
-import fr.pmk_lobbyutils.hotbarconnect.commands.HotBarSetCommand;
 import fr.pmk_lobbyutils.hotbarconnectv2.HotBarManager;
+import fr.pmk_lobbyutils.hotbarconnectv2.commands.HotBarListCommand;
+import fr.pmk_lobbyutils.hotbarconnectv2.commands.HotBarSetCommand;
 import fr.pmk_lobbyutils.hotbarconnectv2.inventory.HotBarInventory;
 import fr.pmk_lobbyutils.hotbarconnectv2.inventory.HotBarItemData;
+import fr.pmk_lobbyutils.hotbarconnectv2.listener.DevItemListener;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.GameMenuItemListener;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.HotBarListener;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.InfoMenuItemListener;
+import fr.pmk_lobbyutils.hotbarconnectv2.listener.InventoryProtectListener;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.RagnaItemListener;
 import fr.pmk_lobbyutils.listener.PlayerListener;
 
@@ -50,11 +51,12 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		hotBarManager.buildMenu();
 		
+		hotBarManager.setInventoryProtectListener(new InventoryProtectListener());
 		hotBarManager.setDefaultInventory(createHotBarInv(hotBarManager));
 		hotBarManager.setPlayerListener(new HotBarListener());
 		
-		//this.getCommand("hbclist").setExecutor(new HotBarListCommand());
-		//this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
+		this.getCommand("hbclist").setExecutor(new HotBarListCommand());
+		this.getCommand("hbcserver").setExecutor(new HotBarSetCommand());
 		
 		//getServer().getPluginManager().registerEvents(new HotBarListener(), this); hold hotbar system
 		
@@ -78,7 +80,9 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		iragna.setItemMeta(iragnaM);
 		
-		HotBarItemData itemDataRagna = new HotBarItemData("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV§4§l", 2 , iragna , new RagnaItemListener());
+		HotBarItemData itemDataRagna = new HotBarItemData("§n§2PumpMyKins§9§o#1 §r§2§nRagnaMod-IV§4§l","ragna1", 2 , iragna , new RagnaItemListener());
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		ItemStack iInfoMenu = new ItemStack(Material.BOOK);
 		ItemMeta iInfoMenuM = iInfoMenu.getItemMeta();
@@ -92,10 +96,12 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		iInfoMenu.setItemMeta(iInfoMenuM);
 		
-		HotBarItemData itemDataInfoMenu = new HotBarItemData("§9§l§nMenu d'information", 4 , iInfoMenu , new InfoMenuItemListener());
+		HotBarItemData itemDataInfoMenu = new HotBarItemData("§9§l§nMenu d'information", "infomenu" , 4 , iInfoMenu , new InfoMenuItemListener());
+		
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		ItemStack iGameMenu = new ItemStack(Material.FIREWORK);
-		ItemMeta iGameMenuM = iInfoMenu.getItemMeta();
+		ItemMeta iGameMenuM = iGameMenu.getItemMeta();
 		
 		iGameMenuM.setDisplayName("§6§l§nMenu de jeux");
 		
@@ -106,9 +112,27 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		iGameMenu.setItemMeta(iGameMenuM);
 		
-		HotBarItemData itemDataGameMenu = new HotBarItemData("§6§l§nMenu de jeux", 6 , iGameMenu , new GameMenuItemListener());
+		HotBarItemData itemDataGameMenu = new HotBarItemData("§6§l§nMenu de jeux", "infogame" , 6 , iGameMenu , new GameMenuItemListener());
 		
-		HotBarInventory inv = HotBarInventory.build(itemDataRagna,itemDataInfoMenu,itemDataGameMenu);
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		ItemStack idev= new ItemStack(Material.ANVIL);
+		ItemMeta idevM = idev.getItemMeta();
+		
+		idevM.setDisplayName("§6§l§nServeur Dev");
+		
+		List<String> loreDev = new ArrayList<>();
+		loreDev.add("§6§l§nServeur Dev §r§f#dpmk");
+		
+		idevM.setLore(loreDev);
+		
+		idev.setItemMeta(idevM);
+		
+		HotBarItemData itemDataDev = new HotBarItemData("§6§l§nServeur Dev", "dev" , 8 , idev , new DevItemListener());
+		
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		HotBarInventory inv = HotBarInventory.build(itemDataRagna,itemDataInfoMenu,itemDataGameMenu,itemDataDev);
 		
 		return inv;
 		
