@@ -10,13 +10,15 @@ public class HotBarItemData {
 	private IHotBarItemListener listener;
 	private String itemName;
 	private int itemSlot;
+	private String compactName;
 	
-	public HotBarItemData(String iN , int s, ItemStack i, IHotBarItemListener l) {
+	public HotBarItemData(String iN , String cN, int s, ItemStack i, IHotBarItemListener l) {
 		
 		this.itemName = iN;
 		this.item = i;
 		this.listener = l;
 		this.itemSlot = s;
+		this.compactName = cN;
 		
 	}
 	
@@ -47,6 +49,14 @@ public class HotBarItemData {
 
 	public void setItemSlot(int itemSlot) {
 		this.itemSlot = itemSlot;
+	}
+
+	public String getCompactName() {
+		return compactName;
+	}
+
+	public void setCompactName(String compactName) {
+		this.compactName = compactName;
 	}
 	
 	
