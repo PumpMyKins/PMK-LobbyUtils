@@ -8,8 +8,8 @@ import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
 public class RagnaItemListener implements IHotBarItemListener {
 	
-	private static String state = "on";
-	private static String raison = "";
+	private String state = "on";
+	private String raison = "";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {
@@ -59,7 +59,8 @@ public class RagnaItemListener implements IHotBarItemListener {
 		}else if(state.equals("off")) {
 			
 			// connexion refusé
-			
+			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + "ragna1" + "§r§c non envoyé, serveur indisponible !");
+			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRaison : §4§o§n" + raison);
 		}
 			
 		
@@ -68,20 +69,30 @@ public class RagnaItemListener implements IHotBarItemListener {
 		
 	}
 
-	public static String getState() {
+	@Override
+	public String getState() {
+		// TODO Auto-generated method stub
 		return state;
 	}
 
-	public static void setState(String state) {
-		RagnaItemListener.state = state;
-	}
-
-	public static String getRaison() {
+	@Override
+	public String getRaison() {
+		// TODO Auto-generated method stub
 		return raison;
 	}
 
-	public static void setRaison(String raison) {
-		RagnaItemListener.raison = raison;
+	@Override
+	public void setState(String s) {
+		// TODO Auto-generated method stub
+		this.state = s;
 	}
+
+	@Override
+	public void setRasion(String r) {
+		// TODO Auto-generated method stub
+		this.raison = r;
+	}
+	
+	
 	
 }
