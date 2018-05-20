@@ -1,10 +1,12 @@
 package fr.pmk_lobbyutils.hotbarconnectv2.listener;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
@@ -12,8 +14,8 @@ public class GameMenuItemListener implements IHotBarItemListener {
 
 	private static Inventory inv;
 	
-	private static String raison = "Surprise";
-	private static boolean state = false;
+	private String raison = "Surprise";
+	private String state = "off";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {
@@ -22,13 +24,13 @@ public class GameMenuItemListener implements IHotBarItemListener {
 		
 		Player p = event.getPlayer();
 		
-		if(p.hasPermission("menu.game.over") | state ) {
+		if(p.hasPermission("menu.info.over") | state.equals("on") ) {
 			
 			p.openInventory(inv);
 			
 		}else {
 			
-			//p.sendMessage("[PumpMyGames] Impossible d'ouvrir le menu de jeux actuellement");
+			//p.sendMessage("[PumpMyInfo] Impossible d'ouvrir le menu d'information actuellement");
 			p.sendMessage("§5§kABCDEFG §r SURPISE §5§kABCDEFG");
 		}
 		
@@ -37,6 +39,8 @@ public class GameMenuItemListener implements IHotBarItemListener {
 	public static void buildMenu() {
 		
 		inv = Bukkit.createInventory(null, InventoryType.HOPPER , "§6§l§nMenu de jeux");
+		
+		inv.setItem(0, new ItemStack(Material.BEACON));
 		
 	}
 
@@ -48,20 +52,28 @@ public class GameMenuItemListener implements IHotBarItemListener {
 		GameMenuItemListener.inv = inv;
 	}
 
-	public static String getRaison() {
-		return raison;
-	}
-
-	public static void setRaison(String raison) {
-		GameMenuItemListener.raison = raison;
-	}
-
-	public static boolean isState() {
+	@Override
+	public String getState() {
+		// TODO Auto-generated method stub
 		return state;
 	}
 
-	public static void setState(boolean state) {
-		GameMenuItemListener.state = state;
+	@Override
+	public String getRaison() {
+		// TODO Auto-generated method stub
+		return raison;
 	}
 
+	@Override
+	public void setState(String s) {
+		this.state = s;
+		
+	}
+
+	@Override
+	public void setRasion(String r) {
+		// TODO Auto-generated method stub
+		this.raison = r;
+	}
+	
 }
