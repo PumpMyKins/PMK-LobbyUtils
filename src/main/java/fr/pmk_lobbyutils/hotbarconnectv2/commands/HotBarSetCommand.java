@@ -56,19 +56,19 @@ public class HotBarSetCommand implements CommandExecutor {
             				if(args[1].equalsIgnoreCase("on") | args[1].equalsIgnoreCase("prime")) {
             					
             					//System.out.println("on prime");
-            					l.setRasion(args[1]);
+            					l.setState(args[1]);
             					
             				}else {
             					
             					//System.out.println("off dev");
-            					l.setRasion(args[1]);
+            					l.setState(args[1]);
             					
             					String raison = "";
             					for (int i = 2; i < args.length; i++) {
 									raison += args[i] + " ";
 								}  
             					
-            					l.setState(raison);
+            					l.setRasion(raison);
             					
             					
             				}
