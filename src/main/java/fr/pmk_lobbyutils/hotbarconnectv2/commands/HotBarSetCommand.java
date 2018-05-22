@@ -1,14 +1,13 @@
-package fr.pmk_lobbyutils.hotbarconnect.commands;
-
-import java.util.List;
+package fr.pmk_lobbyutils.hotbarconnectv2.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import fr.pmk_lobbyutils.hotbarconnect.HotBarData;
-import fr.pmk_lobbyutils.hotbarconnect.HotBarListener;
+import fr.pmk_lobbyutils.MainLobbyUtils;
+import fr.pmk_lobbyutils.hotbarconnectv2.inventory.HotBarItemData;
+import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
 public class HotBarSetCommand implements CommandExecutor {
 
@@ -31,13 +30,13 @@ public class HotBarSetCommand implements CommandExecutor {
             		}
             		
             		
-            		List<HotBarData> hList = HotBarListener.getHotBarList();
-            		
-            		for (HotBarData h : hList) {
+            		for (HotBarItemData h : MainLobbyUtils.getHotBarManager().getHotBarInv()) {
             			
-            			if(h.getServerName().equalsIgnoreCase(args[0])) {
+            			IHotBarItemListener l = h.getListener();
+            			
+            			if(h.getCompactName().equalsIgnoreCase(args[0])) {
             				
-            				System.out.println(args[0]);
+            				//System.out.println(args[0]);
             				
             				if(!(args.length >= 2)) {
             					p.sendMessage("§4[ Staff help ] : Vous devez mettre spécifier un serveur, et l'état");
@@ -52,25 +51,24 @@ public class HotBarSetCommand implements CommandExecutor {
             					
             				}
             				
-            				System.out.println(args[1]);
+            				//System.out.println(args[1]);
             				
             				if(args[1].equalsIgnoreCase("on") | args[1].equalsIgnoreCase("prime")) {
             					
-            					System.out.println("on prime");
-            					h.setServerState(args[1]);
+            					//System.out.println("on prime");
+            					l.setState(args[1]);
             					
             				}else {
             					
-            					System.out.println("off dev");
-            					h.setServerState(args[1]);
+            					//System.out.println("off dev");
+            					l.setState(args[1]);
             					
             					String raison = "";
             					for (int i = 2; i < args.length; i++) {
 									raison += args[i] + " ";
 								}  
             					
-            					h.setDownRaison(raison);
-            					System.out.println(raison);
+            					l.setRasion(raison);
             					
             					
             				}
