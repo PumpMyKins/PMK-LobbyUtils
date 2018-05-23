@@ -11,6 +11,7 @@ import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import fr.pmk_lobbyutils.MainLobbyUtils;
 
@@ -34,7 +35,7 @@ public class InventoryProtectListener implements Listener {
 	@EventHandler
 	public void OnPlayerMoveItem(InventoryMoveItemEvent e) {
 
-		e.setCancelled(true);
+		System.out.println();
 		
 	}
 	
@@ -62,21 +63,24 @@ public class InventoryProtectListener implements Listener {
 			return;
 		}else {
 			
+			if(p.getGameMode().equals(GameMode.CREATIVE))
+				return;
+			
 			if(i.getType().equals(InventoryType.PLAYER)) {
+					
+				e.setCancelled(true);
+				MainLobbyUtils.getHotBarManager().setInventory(p);
+				return;
+					
+			}else {
 				
-				if(!p.getGameMode().equals(GameMode.CREATIVE)) {
-					
-					e.setCancelled(true);
-					MainLobbyUtils.getHotBarManager().setInventory(p);
-					return;
-					
-					
-				}
 				
-			}else if(!e.getClick().isLeftClick()) {
+				ItemStack item = e.getCurrentItem();
+				String name = item.getItemMeta().getDisplayName();
+				
+				System.out.println(name);
 				
 				e.setCancelled(true);
-				
 			}
 			
 		}

@@ -1,5 +1,6 @@
 package fr.pmk_lobbyutils.hotbarconnectv2.listener;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -37,6 +38,10 @@ public class HotBarListener implements Listener,IHotBarConnectPlayerListener {
 	@EventHandler
 	public void OnPlayerRespawn(PlayerRespawnEvent event) {
 		// TODO Auto-generated method stub
+		
+		if(event.getPlayer().getGameMode().equals(GameMode.CREATIVE))
+			return;
+		
 		hotBarManager.setInventory(event.getPlayer());
 		
 	}
@@ -46,6 +51,9 @@ public class HotBarListener implements Listener,IHotBarConnectPlayerListener {
 	public void OnPlayerUseItem(PlayerInteractEvent event) {
 		// TODO Auto-generated method stub
 		Player p = event.getPlayer();
+		
+		if(p.getGameMode().equals(GameMode.CREATIVE))
+			return;
 		
 		ItemStack i = event.getItem();
 		
