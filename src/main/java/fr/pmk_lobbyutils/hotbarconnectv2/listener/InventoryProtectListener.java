@@ -14,6 +14,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import fr.pmk_lobbyutils.MainLobbyUtils;
+import fr.pmk_lobbyutils.hotbarconnect.bungee.HotBarBungee;
 
 public class InventoryProtectListener implements Listener {
 
@@ -78,7 +79,27 @@ public class InventoryProtectListener implements Listener {
 				ItemStack item = e.getCurrentItem();
 				String name = item.getItemMeta().getDisplayName();
 				
-				System.out.println(name);
+				if(name.equals("§n§3GravityWars§d§o#1 §kC§l§dEpicMode§kC")) {
+					// gravity epic mod
+					
+					p.sendMessage("§b[PumpMyInfo] Connexion à :§r" + name);
+					p.closeInventory();
+					HotBarBungee.connectServer(p, "gravity1");
+					
+					
+				}else if(name.equals("§n§3GravityWars§d§o#2 §kC§l§dNormal§kC")) {
+					// gravity normal mod
+					
+					p.sendMessage("§b[PumpMyInfo] Connexion à :§r" + name);
+					p.closeInventory();
+					HotBarBungee.connectServer(p, "gravity2");
+					
+					
+				}else {
+					
+					
+					
+				}
 				
 				e.setCancelled(true);
 			}

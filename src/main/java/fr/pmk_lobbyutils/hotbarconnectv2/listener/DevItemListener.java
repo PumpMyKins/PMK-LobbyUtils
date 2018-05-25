@@ -19,6 +19,7 @@ public class DevItemListener implements IHotBarItemListener {
 		if(p.hasPermission("server.dev")) {
 			
 			HotBarBungee.connectServer(p, "dev");
+			
 		}else {
 			event.setCancelled(true);
 			return;

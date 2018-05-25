@@ -53,7 +53,6 @@ public class HotBarManager {
 	
 	public void buildMenu() {
 		InfoMenuItemListener.buildMenu();
-		GameMenuItemListener.buildMenu();
 	}
 
 	public void setInventory(Player player) {
