@@ -36,7 +36,7 @@ public class InfoMenuItemListener implements IHotBarItemListener {
 		}else {
 			
 			//p.sendMessage("[PumpMyInfo] Impossible d'ouvrir le menu d'information actuellement");
-			p.sendMessage("§5§kABCDEFG §r SURPISE §5§kABCDEFG");
+			p.sendMessage("§5§kABCDEFG §r SURPRISE §5§kABCDEFG");
 		}
 		
 	}

@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class PlayerListener implements Listener {
 	
@@ -18,9 +20,10 @@ public class PlayerListener implements Listener {
 		
 		Player p = e.getPlayer();
 		
-		p.teleport(new Location(p.getWorld(), -537, 29, 1372));
+		p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 99999999, 12, true), true);
+		
+		p.teleport(new Location(p.getWorld(), 254.5, 7.5, -19.5));
 		e.setJoinMessage("");
-		p.setAllowFlight(true);
 		//hPlayerFlight.put(p, "2222223");
 		
 		
@@ -28,7 +31,6 @@ public class PlayerListener implements Listener {
 	
 	@EventHandler
 	public void OnPlayerQuit(PlayerQuitEvent e) {
-		e.getPlayer().setAllowFlight(false);
 		e.setQuitMessage("");		//pas de message
 	}
 

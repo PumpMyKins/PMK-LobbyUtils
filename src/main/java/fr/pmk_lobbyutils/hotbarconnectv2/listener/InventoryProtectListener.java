@@ -22,6 +22,7 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
+import fr.pmk_lobbyutils.hotbarconnect.bungee.HotBarBungee;
 
 public class InventoryProtectListener implements Listener {
 
@@ -43,7 +44,7 @@ public class InventoryProtectListener implements Listener {
 	@EventHandler
 	public void OnPlayerMoveItem(InventoryMoveItemEvent e) {
 
-		e.setCancelled(true);
+		System.out.println();
 		
 	}
 	
@@ -71,53 +72,68 @@ public class InventoryProtectListener implements Listener {
 			return;
 		}else {
 			
+			if(p.getGameMode().equals(GameMode.CREATIVE))
+				return;
+			
 			if(i.getType().equals(InventoryType.PLAYER)) {
+					
+				e.setCancelled(true);
+				MainLobbyUtils.getHotBarManager().setInventory(p);
+				return;
+					
+			}else {
 				
-				if(!p.getGameMode().equals(GameMode.CREATIVE)) {
+				
+				ItemStack item = e.getCurrentItem();
+				String name = item.getItemMeta().getDisplayName();
+				
+				if(name.equals("§n§3GravityWars§d§o#1 §kC§l§dEpicMode§kC")) {
+					// gravity epic mod
 					
-					e.setCancelled(true);
-					MainLobbyUtils.getHotBarManager().setInventory(p);
-					return;
-					
-				}else {
+					p.sendMessage("§b[PumpMyInfo] Connexion à :§r" + name);
+					p.closeInventory();
+					HotBarBungee.connectServer(p, "gravity1");
 					
 					
-					ItemStack item = e.getCurrentItem();
-					String name = item.getItemMeta().getDisplayName();
+				}else if(name.equals("§n§3GravityWars§d§o#2 §kC§l§dNormal§kC")) {
+					// gravity normal mod
 					
-						if(name.equals("�cR�gles")) {
-						//R�gles
+					p.sendMessage("§b[PumpMyInfo] Connexion à :§r" + name);
+					p.closeInventory();
+					HotBarBungee.connectServer(p, "gravity2");
+					
+					
+        }else if(name.equals("§cRègles")) {
+						//Règles
 						p.chat("/rules");
-					}else if(name.equals("�6Forum")) {
+				}else if(name.equals("§6Forum")) {
 						//Forum
-						net.md_5.bungee.api.chat.TextComponent forumMenu = new net.md_5.bungee.api.chat.TextComponent("�a[PumpMyKins] Tu peux aller voir notre �cForum");
+						net.md_5.bungee.api.chat.TextComponent forumMenu = new net.md_5.bungee.api.chat.TextComponent("§a[PumpMyKins] Tu peux aller voir notre §cForum");
 						forumMenu.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://pumpmykins.eu/forum/"));
 						p.spigot().sendMessage(forumMenu);
-					}else if(name.equals("�cSupport")) {
+        }else if(name.equals("§cSupport")) {
 						//Support
-						p.sendMessage("�c[PumpMyKins] Pour contacter le support veuillez faire : /support <Votre Message>");
-					}else if(name.equals("�6Site")) {
+						p.sendMessage("§c[PumpMyKins] Pour contacter le support veuillez faire : /support <Votre Message>");
+				}else if(name.equals("§6Site")) {
 						//Site
-						net.md_5.bungee.api.chat.TextComponent siteMenu = new net.md_5.bungee.api.chat.TextComponent("�a[PumpMyKins] Tu peux aller voir note �cSite");
+						net.md_5.bungee.api.chat.TextComponent siteMenu = new net.md_5.bungee.api.chat.TextComponent("§a[PumpMyKins] Tu peux aller voir note §cSite");
 						siteMenu.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://pumpmykins.eu"));
 						p.spigot().sendMessage(siteMenu);
-					}else if(name.equals("�9Discord")) {
+				}else if(name.equals("§9Discord")) {
 						//Discord
-						net.md_5.bungee.api.chat.TextComponent discordMenu = new net.md_5.bungee.api.chat.TextComponent("�d[Discord] Tu peux rejoindre notre �cDiscord");
+						net.md_5.bungee.api.chat.TextComponent discordMenu = new net.md_5.bungee.api.chat.TextComponent("§d[Discord] Tu peux rejoindre notre §cDiscord");
 						discordMenu.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/VedSyV7"));
 						p.spigot().sendMessage(discordMenu);
-					}else if(name.equals("�aBoutique")) {
+				}else if(name.equals("§aBoutique")) {
 						//Boutique
-						net.md_5.bungee.api.chat.TextComponent boutiqueMenu = new net.md_5.bungee.api.chat.TextComponent("�e[Boutique] Tu peux aller voir notre �cBoutique");
+						net.md_5.bungee.api.chat.TextComponent boutiqueMenu = new net.md_5.bungee.api.chat.TextComponent("§e[Boutique] Tu peux aller voir notre §cBoutique");
 						boutiqueMenu.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://pumpmykins.buycraft.net"));
 						p.spigot().sendMessage(boutiqueMenu);
-					}else if(name.equals("�2Pets")) {
+				}else if(name.equals("§2Pets")) {
 						//Pets
 						p.chat("/pet");
-					}
-				
+        }				
 				e.setCancelled(true);
-				
 			}
 			
 		}
