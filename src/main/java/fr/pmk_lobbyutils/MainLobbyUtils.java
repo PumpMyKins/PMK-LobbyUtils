@@ -112,7 +112,7 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		iGameMenu.setItemMeta(iGameMenuM);
 		
-		HotBarItemData itemDataGameMenu = new HotBarItemData("§6§l§nMenu de jeux", "infogame" , 6 , iGameMenu , new GameMenuItemListener());
+		HotBarItemData itemDataGameMenu = new HotBarItemData("§6§l§nMenu de jeux", "gamemenu" , 6 , iGameMenu , new GameMenuItemListener());
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
