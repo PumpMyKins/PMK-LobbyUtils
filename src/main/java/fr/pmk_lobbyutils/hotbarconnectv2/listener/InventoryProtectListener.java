@@ -1,6 +1,8 @@
 package fr.pmk_lobbyutils.hotbarconnectv2.listener;
 
 import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -77,8 +79,11 @@ public class InventoryProtectListener implements Listener {
 			}else {
 				
 				ItemStack item = e.getCurrentItem();
-				
+
 				if(item == null)
+					return;
+				
+				if(item.getItemMeta() == null)
 					return;
 				
 				String name = item.getItemMeta().getDisplayName();
@@ -138,6 +143,7 @@ public class InventoryProtectListener implements Listener {
 				}	
 				
 				e.setCancelled(true);
+				MainLobbyUtils.getHotBarManager().setInventory(p);
 			}
 			
 			

@@ -18,7 +18,7 @@ public class DevItemListener implements IHotBarItemListener {
 		
 		if(p.hasPermission("server.dev")) {
 			
-			HotBarBungee.connectServer(p, "dev");
+			HotBarBungee.connectServer(p, "dev-spigot");
 			
 		}else {
 			event.setCancelled(true);
