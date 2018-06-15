@@ -6,15 +6,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import fr.pmk_lobbyutils.hotbarconnect.bungee.HotBarBungee;
 import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
-public class RagnaItemListener implements IHotBarItemListener {
-	
-	private String state = "on";
-	private String raison = "";
+public class OzoneItemListener implements IHotBarItemListener {
+
+	private String state = "dev";
+	private String raison = "Serveur non ouvert";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {
 		// TODO Auto-generated method stub
-		
 		Player p = event.getPlayer();
 		
 		// item ragnamod connexion
@@ -22,36 +21,36 @@ public class RagnaItemListener implements IHotBarItemListener {
 		if(state.equals("on")) {
 			
 			// requete de connexion
-			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ragna1" + "§r§a bien envoyé !");
+			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ozone" + "§r§a bien envoyé !");
 			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aMerci de patienter le temps que le serveur confirme la connexion ...");
-			HotBarBungee.connectServer(p, "ragna1");
+			HotBarBungee.connectServer(p, "ozone");
 			
 		}else if(state.equals("prime")) {
 			
-			if(p.hasPermission("server.ragna1.prime")) {
+			if(p.hasPermission("server.ozone.prime")) {
 				// connexion accepté
 				// requete de connexion
-				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ragna1" + "§r§a bien envoyé !");
+				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ozone" + "§r§a bien envoyé !");
 				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aMerci de patienter le temps que le serveur confirme la connexion ...");
-				HotBarBungee.connectServer(p, "ragna1");
+				HotBarBungee.connectServer(p, "ozone");
 				
 			}else {
 				// connexion refusé
-				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + "ragna1" + "§r§c non envoyé, permission insuffisante !");
+				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + "ozone" + "§r§c non envoyé, permission insuffisante !");
 			}
 			
 		}else if(state.equals("dev")) {
 			
-			if(p.hasPermission("server.ragna1.dev")) {
+			if(p.hasPermission("server.ozone.dev")) {
 				// connexion accepté
 				// requete de connexion
-				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ragna1" + "§r§a bien envoyé !");
+				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ozone" + "§r§a bien envoyé !");
 				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aMerci de patienter le temps que le serveur confirme la connexion ...");
-				HotBarBungee.connectServer(p, "ragna1");
+				HotBarBungee.connectServer(p, "ozone");
 				
 			}else {
 				// connexion refusé
-				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + "ragna1" + "§r§c non envoyé, serveur indisponible !");
+				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + "ozone" + "§r§c non envoyé, serveur indisponible !");
 				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRaison : §4§o§n" + raison);
 				
 			}
@@ -59,10 +58,9 @@ public class RagnaItemListener implements IHotBarItemListener {
 		}else if(state.equals("off")) {
 			
 			// connexion refusé
-			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + "ragna1" + "§r§c non envoyé, serveur indisponible !");
+			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRequête de connexion au serveur §4§o§n" + "ozone" + "§r§c non envoyé, serveur indisponible !");
 			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §cRaison : §4§o§n" + raison);
 		}
-			
 	}
 
 	@Override
@@ -88,7 +86,5 @@ public class RagnaItemListener implements IHotBarItemListener {
 		// TODO Auto-generated method stub
 		this.raison = r;
 	}
-	
-	
-	
+
 }

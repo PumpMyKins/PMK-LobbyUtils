@@ -20,7 +20,7 @@ public class InfoMenuItemListener implements IHotBarItemListener {
 	private static Inventory inv;
 	
 	private String raison = "Surprise";
-	private String state = "off";
+	private String state = "on";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {

@@ -13,4 +13,7 @@ commands:
   spawn:
       description: Commande de spawn
       usage: /spawn
-    
+  
+  piniouf:
+    usage: /piniouf
+    description: serveur
