@@ -6,7 +6,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import fr.pmk_lobbyutils.hotbarconnect.bungee.HotBarBungee;
 import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
-public class RagnaItemListener implements IHotBarItemListener {
+public class Ragna2ItemListener implements IHotBarItemListener {
 	
 	private String state = "on";
 	private String raison = "";

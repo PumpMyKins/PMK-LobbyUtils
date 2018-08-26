@@ -22,7 +22,8 @@ import fr.pmk_lobbyutils.hotbarconnectv2.listener.HotBarListener;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.InfoMenuItemListener;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.InventoryProtectListener;
 import fr.pmk_lobbyutils.hotbarconnectv2.listener.OzoneItemListener;
-import fr.pmk_lobbyutils.hotbarconnectv2.listener.RagnaItemListener;
+import fr.pmk_lobbyutils.hotbarconnectv2.listener.Ragna1ItemListener;
+import fr.pmk_lobbyutils.hotbarconnectv2.listener.Ragna2ItemListener;
 import fr.pmk_lobbyutils.listener.PlayerListener;
 
 
@@ -73,19 +74,35 @@ public class MainLobbyUtils extends JavaPlugin{
 	private HotBarInventory createHotBarInv(HotBarManager h) {
 		
 		// item de connexion 
-		ItemStack iragna = new ItemStack(Material.APPLE);
-		ItemMeta iragnaM = iragna.getItemMeta();
+		ItemStack iragna1 = new ItemStack(Material.APPLE);
+		ItemMeta iragna1M = iragna1.getItemMeta();
 		
-		iragnaM.setDisplayName("§n§2PumpMyKins §r§2§nRagnaMod-IV");
+		iragna1M.setDisplayName("§n§2PumpMyKins §r§2§nRagnaMod-IV#1");
 		
-		List<String> loreRagna = new ArrayList<>();
-		loreRagna.add("§n§2PumpMyKins §r§2§nRagnaMod-IV §r§f#r1pmk");
+		List<String> loreRagna1 = new ArrayList<>();
+		loreRagna1.add("§n§2PumpMyKins §r§2§nRagnaMod-IV §r§f#r1pmk");
 		
-		iragnaM.setLore(loreRagna);
+		iragna1M.setLore(loreRagna1);
 		
-		iragna.setItemMeta(iragnaM);
+		iragna1.setItemMeta(iragna1M);
 		
-		HotBarItemData itemDataRagna = new HotBarItemData("§n§2PumpMyKins §r§2§nRagnaMod-IV","ragna1", 2 , iragna , new RagnaItemListener());
+		HotBarItemData itemDataRagna1 = new HotBarItemData("§n§2PumpMyKins §r§2§nRagnaMod-IV#1","ragna1", 0 , iragna1 , new Ragna1ItemListener());
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		ItemStack iragna2 = new ItemStack(Material.APPLE);
+		ItemMeta iragna2M = iragna2.getItemMeta();
+		
+		iragna2M.setDisplayName("§n§2PumpMyKins §r§2§nRagnaMod-IV#2");
+		
+		List<String> loreRagna2 = new ArrayList<>();
+		loreRagna2.add("§n§2PumpMyKins §r§2§nRagnaMod-IV §r§f#r2pmk");
+		
+		iragna2M.setLore(loreRagna2);
+		
+		iragna2.setItemMeta(iragna2M);
+		
+		HotBarItemData itemDataRagna2 = new HotBarItemData("§n§2PumpMyKins §r§2§nRagnaMod-IV#1","ragna2", 1 , iragna2 , new Ragna2ItemListener());
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
@@ -95,13 +112,13 @@ public class MainLobbyUtils extends JavaPlugin{
 		iozoneM.setDisplayName("§n§2PumpMyKins §r§2§nProject Ozone 2");
 		
 		List<String> loreOzone = new ArrayList<>();
-		loreRagna.add("§n§2PumpMyKins §r§2§nProject Ozone 2 §r§f#opmk");
+		loreOzone.add("§n§2PumpMyKins §r§2§nProject Ozone 2 §r§f#opmk");
 		
 		iozoneM.setLore(loreOzone);
 		
 		iozone.setItemMeta(iozoneM);
 		
-		HotBarItemData itemDataOzone = new HotBarItemData("§n§2PumpMyKins §r§2§nProject Ozone 2","ozone", 1 , iozone , new OzoneItemListener());
+		HotBarItemData itemDataOzone = new HotBarItemData("§n§2PumpMyKins §r§2§nProject Ozone 2","ozone", 2 , iozone , new OzoneItemListener());
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
@@ -153,7 +170,7 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-		HotBarInventory inv = HotBarInventory.build(itemDataOzone,itemDataRagna,itemDataInfoMenu,itemDataGameMenu,itemDataDev);
+		HotBarInventory inv = HotBarInventory.build(itemDataOzone,itemDataRagna1,itemDataRagna2,itemDataInfoMenu,itemDataGameMenu,itemDataDev);
 		
 		return inv;
 		
