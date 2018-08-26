@@ -8,8 +8,8 @@ import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
 public class OzoneItemListener implements IHotBarItemListener {
 
-	private String state = "dev";
-	private String raison = "Serveur non ouvert";
+	private String state = "off";
+	private String raison = "Serveur non ouvert ...";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {

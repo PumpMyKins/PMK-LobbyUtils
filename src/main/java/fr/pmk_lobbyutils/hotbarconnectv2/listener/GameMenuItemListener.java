@@ -20,8 +20,8 @@ public class GameMenuItemListener implements IHotBarItemListener {
 
 	private Inventory inv;
 	
-	private String raison = "Surprise";
-	private String state = "on";
+	private String state = "off";
+	private String raison = "Serveur non ouvert ...";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {

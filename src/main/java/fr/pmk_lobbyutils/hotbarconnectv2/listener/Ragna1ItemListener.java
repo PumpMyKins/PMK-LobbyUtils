@@ -8,8 +8,8 @@ import fr.pmk_lobbyutils.hotbarconnectv2.utils.IHotBarItemListener;
 
 public class Ragna1ItemListener implements IHotBarItemListener {
 	
-	private String state = "on";
-	private String raison = "";
+	private String state = "off";
+	private String raison = "Serveur non ouvert ...";
 	
 	@Override
 	public void callItem(PlayerInteractEvent event) {
