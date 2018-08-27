@@ -22,9 +22,9 @@ public class Ragna2ItemListener implements IHotBarItemListener {
 		if(state.equals("on")) {
 			
 			// requete de connexion
-			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ragna1" + "§r§a bien envoyé !");
+			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ragna2" + "§r§a bien envoyé !");
 			p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aMerci de patienter le temps que le serveur confirme la connexion ...");
-			HotBarBungee.connectServer(p, "ragna1");
+			HotBarBungee.connectServer(p, "ragna2");
 			
 		}else if(state.equals("prime")) {
 			
@@ -33,7 +33,7 @@ public class Ragna2ItemListener implements IHotBarItemListener {
 				// requete de connexion
 				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ragna2" + "§r§a bien envoyé !");
 				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aMerci de patienter le temps que le serveur confirme la connexion ...");
-				HotBarBungee.connectServer(p, "ragna1");
+				HotBarBungee.connectServer(p, "ragna2");
 				
 			}else {
 				// connexion refusé
@@ -47,7 +47,7 @@ public class Ragna2ItemListener implements IHotBarItemListener {
 				// requete de connexion
 				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aRequête de connexion au serveur §2§o§n" + "ragna2" + "§r§a bien envoyé !");
 				p.sendMessage("§e§l[§r§6PumpMyCord§r§e§l]§r §aMerci de patienter le temps que le serveur confirme la connexion ...");
-				HotBarBungee.connectServer(p, "ragna1");
+				HotBarBungee.connectServer(p, "ragna2");
 				
 			}else {
 				// connexion refusé

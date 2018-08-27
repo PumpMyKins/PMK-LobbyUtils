@@ -102,7 +102,7 @@ public class MainLobbyUtils extends JavaPlugin{
 		
 		iragna2.setItemMeta(iragna2M);
 		
-		HotBarItemData itemDataRagna2 = new HotBarItemData("§n§2PumpMyKins §r§2§nRagnaMod-IV#1","ragna2", 1 , iragna2 , new Ragna2ItemListener());
+		HotBarItemData itemDataRagna2 = new HotBarItemData("§n§2PumpMyKins §r§2§nRagnaMod-IV#2","ragna2", 1 , iragna2 , new Ragna2ItemListener());
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
